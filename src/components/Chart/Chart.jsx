@@ -7,6 +7,7 @@ import styles from "./Chart.module.css";
 const Chart = ({ data: { confirmed, deaths, recovered }, country }) => {
   const [dailyData, setDailyData] = useState([]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     const fetchAPI = async () => {
       setDailyData(await fetchDailyData());
@@ -30,6 +31,7 @@ const Chart = ({ data: { confirmed, deaths, recovered }, country }) => {
             data: dailyData.map(({ deaths }) => deaths),
             label: "Deaths",
             borderColor: "red",
+            // eslint-disable-next-line no-dupe-keys
             borderColor: "rgba(255, 0, 0, 0.5)",
             fill: true,
           },
